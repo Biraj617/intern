@@ -1,46 +1,33 @@
-import React, { useState } from "react";
-import "./Navbar.css";
+import React from "react";
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
+const Navbar = () => {
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <div className="navbar-logo">
-          <a href="/">MedicalApp</a>
-        </div>
-        <div className={`navbar-menu ${isOpen ? "active" : ""}`}>
-          <ul className="navbar-list">
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/services">Services</a>
-            </li>
-            <li>
-              <a href="/contact">Contact</a>
-            </li>
-            <li>
-              <a href="/login" className="btn-login">
-                Login
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+    <div className="fixed w-full h-23 py-3 z-2">
+      {/* Navbar main container */}
+
+      {/* Hospital logo */}
+      <div className="font-bold ml-14 mt-5 text-2xl">
+        <p>Hospital</p>
       </div>
-    </nav>
+
+      {/* Navbar grey container */}
+      <div
+        className="hidden sm:flex fixed h-14 justify-between items-center gap-16 py-3 px-10 sm:left-1/2 -translate-x-1/2 top-[20px] rounded-full bg-black/60 text-center text-white shadow-lg z-10"
+      >
+        <ul className="flex gap-8 text-xl">
+          <li>About us</li>
+          <li>Partner with us</li>
+          <li>Join the team</li>
+          <li>News</li>
+        </ul>
+
+        <button className="h-10 bg-gradient-to-r from-[#2980b9] via-[#6dd5fa] to-green-500 text-white rounded-full px-5 py-2 font-bold">
+          Contact
+        </button>
+      </div>
+    </div>
   );
-}
+};
+
+export default Navbar;
